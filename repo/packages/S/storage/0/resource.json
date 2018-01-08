@@ -1,0 +1,12 @@
+{
+  "assets": {
+    "uris": {
+      "package": "https://s3.amazonaws.com/dcos-storage-artifacts/jobs/dcos-storage/66/package.tgz"
+    }
+  },
+  "images": {
+    "icon-small": "https://github.com/dcos/dcos-ui/blob/master/plugins/services/src/img/icon-service-default-small.png?raw=true",
+    "icon-medium": "https://github.com/dcos/dcos-ui/blob/master/plugins/services/src/img/icon-service-default-medium.png?raw=true",
+    "icon-large": "https://github.com/dcos/dcos-ui/blob/master/plugins/services/src/img/icon-service-default-large.png?raw=true"
+  }
+}

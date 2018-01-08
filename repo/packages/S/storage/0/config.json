@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "service": {
+      "type": "object",
+      "description": "DC/OS service configuration properties",
+      "properties": {
+        "name": {
+          "title": "Service name",
+          "description": "The name of the service instance",
+          "type": "string",
+          "default": "storage"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "packagingVersion": "4.0",
+  "name": "storage",
+  "version": "0.1.0",
+  "maintainer": "support@mesosphere.io",
+  "description": "DC/OS Storage Service",
+  "tags": [
+    "storage"
+  ]
+}

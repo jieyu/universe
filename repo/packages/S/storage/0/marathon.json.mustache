@@ -1,0 +1,56 @@
+{
+  "id": "{{service.name}}",
+  "instances": 1,
+  "cmd": "package/bin/dss -zk=zk://leader.mesos:2181/dcos-storage/dss -mesos-address=leader.mesos:5050 -failover-timeout=10000h -plugin=api:./package/bin/capabilities-plugin.so -plugin=api:./package/bin/profiles-plugin.so -listen-address=0.0.0.0:$PORT0",
+  "container": {
+    "type": "MESOS",
+    "volumes": []
+  },
+  "cpus": 0.1,
+  "disk": 1024,
+  "mem": 1024,
+  "fetch": [
+    {
+      "uri": "{{resource.assets.uris.package}}",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "networks": [
+    {
+      "mode": "host"
+    }
+  ],
+  "portDefinitions": [
+    {
+      "labels": {
+        "VIP_0": "/storage:10000"
+      },
+      "name": "api",
+      "protocol": "tcp",
+      "port": 10000
+    }
+  ],
+  "labels": {
+    "DCOS_SERVICE_NAME": "{{service.name}}",
+    "DCOS_SERVICE_PORT_INDEX": "0",
+    "DCOS_SERVICE_SCHEME": "http",
+    "DCOS_PACKAGE_FRAMEWORK_NAME": "{{service.name}}"
+  },
+  "maxLaunchDelaySeconds": 3600,
+  "requirePorts": false,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  },
+  "killSelection": "YOUNGEST_FIRST",
+  "unreachableStrategy": {
+    "inactiveAfterSeconds": 0,
+    "expungeAfterSeconds": 0
+  },
+  "backoffFactor": 1.15,
+  "backoffSeconds": 1,
+  "healthChecks": [],
+  "constraints": []
+}
